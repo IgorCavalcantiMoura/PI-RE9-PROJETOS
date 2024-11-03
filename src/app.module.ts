@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -13,7 +14,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'db_re9_projetos',
       entities: [],
       synchronize: true,
-    })
+    }),
+    AuthModule
   ],
   controllers: [],
   providers: [],
