@@ -5,6 +5,10 @@ import { Empresa } from './empresas/entities/empresa.entity';
 import { Candidato } from './candidatos/entities/candidato.entity';
 import { EmpresasModule } from './empresas/empresas.module';
 import { CandidatoModule } from './candidatos/candidatos.module';
+import { PerfilCandidato } from './perfilCandidato/entities/perfilCandidato.entity';
+import { PerfilEmpresa } from './perfilEmpresa/entities/perfilEmpresa.entity';
+import { PerfilEmpresaModule } from './perfilEmpresa/perfilEmpresa.module';
+import { PerfilCandidatoModule } from './perfilCandidato/perfilCandidato.module';
 
 
 
@@ -17,12 +21,14 @@ import { CandidatoModule } from './candidatos/candidatos.module';
       username: 'root',
       password: 'root',
       database: 'db_re9_projetos',
-      entities: [Empresa, Candidato],
+      entities: [Empresa, Candidato, PerfilCandidato, PerfilEmpresa],
       synchronize: true,
     }),
     AuthModule,
     EmpresasModule,
     CandidatoModule,
+    PerfilEmpresaModule,
+    PerfilCandidatoModule
   ],
   controllers: [],
   providers: [],
