@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PerfilCandidato } from '../entities/perfilCandidato.entity';
+import { In } from 'typeorm';
+
 
 
 @Injectable()
@@ -42,6 +44,6 @@ export class PerfilCandidatoService {
   }
 
   async findCandidatosByIds(ids: number[]): Promise<PerfilCandidato[]> {
-    return await this.perfilCandidatoRepository.findByIds(ids);
+    return await this.perfilCandidatoRepository.findBy({ id: In(ids) });
   }
 }
