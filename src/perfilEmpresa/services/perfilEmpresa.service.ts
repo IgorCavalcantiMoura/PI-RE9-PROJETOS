@@ -19,10 +19,15 @@ export class PerfilEmpresaService {
 
   // Busca um perfil de empresa pelo ID
   async buscarPerfilPorId(id: number): Promise<PerfilEmpresa> {
-    const perfil = await this.perfilEmpresaRepository.findOne({ where: { id } });
+    const perfil = await this.perfilEmpresaRepository.findOne({
+      where: { id },
+      relations: ['projetos'], // Inclui os projetos associados ao perfil
+    });
+  
     if (!perfil) {
       throw new NotFoundException(`Perfil de empresa com ID ${id} não encontrado`);
     }
+  
     return perfil;
   }
 
