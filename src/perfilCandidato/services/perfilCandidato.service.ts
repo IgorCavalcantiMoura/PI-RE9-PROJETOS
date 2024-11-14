@@ -19,7 +19,6 @@ export class PerfilCandidatoService {
     return this.perfilCandidatoRepository.save(perfil);
   }
 
-  // Busca um perfil de candidato pelo ID
   async buscarPerfilPorId(id: number): Promise<PerfilCandidato> {
     const perfil = await this.perfilCandidatoRepository.findOne({ where: { id } });
     if (!perfil) {
@@ -28,12 +27,12 @@ export class PerfilCandidatoService {
     return perfil;
   }
 
-  // Atualiza as informações de um perfil de candidato
-  async atualizarPerfil(id: number, dadosAtualizacao: Partial<PerfilCandidato>): Promise<PerfilCandidato> {
+async atualizarPerfil(id: number, dadosAtualizacao: Partial<PerfilCandidato>): Promise<PerfilCandidato> {
     const perfil = await this.buscarPerfilPorId(id);
     Object.assign(perfil, dadosAtualizacao);
     return this.perfilCandidatoRepository.save(perfil);
   }
+
 
   // Remove um perfil de candidato pelo ID
   async removerPerfil(id: number): Promise<void> {
