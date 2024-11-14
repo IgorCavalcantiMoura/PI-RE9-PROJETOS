@@ -9,6 +9,11 @@ import { PerfilCandidato } from './perfilCandidato/entities/perfilCandidato.enti
 import { PerfilEmpresa } from './perfilEmpresa/entities/perfilEmpresa.entity';
 import { PerfilEmpresaModule } from './perfilEmpresa/perfilEmpresa.module';
 import { PerfilCandidatoModule } from './perfilCandidato/perfilCandidato.module';
+import { Equipe } from './equipe/entities/equipe.entity';
+import { Projeto } from './projeto/entities/projeto.entity';
+import { EquipeModule } from './equipe/equipe.module';
+import { ProjetoModule } from './projeto/projeto.module';
+import { AppController } from './app.controller';
 
 
 
@@ -21,16 +26,18 @@ import { PerfilCandidatoModule } from './perfilCandidato/perfilCandidato.module'
       username: 'root',
       password: 'root',
       database: 'db_re9_projetos',
-      entities: [Empresa, Candidato, PerfilCandidato, PerfilEmpresa],
+      entities: [Empresa, Candidato, PerfilCandidato, PerfilEmpresa, Equipe, Projeto],
       synchronize: true,
     }),
     AuthModule,
     EmpresasModule,
     CandidatoModule,
     PerfilEmpresaModule,
-    PerfilCandidatoModule
+    PerfilCandidatoModule,
+    EquipeModule,
+    ProjetoModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}

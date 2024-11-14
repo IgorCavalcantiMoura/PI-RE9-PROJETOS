@@ -7,8 +7,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-  .setTitle('RE9 - Projetos')
-  .setDescription('Projeto Integrador Softex | Recife')
+  .setTitle('RE9AÇÕES')
+  .setDescription('API - Plataforma de Invovação Colaborativa')
   .setContact("Softex | Recife","https://github.com/IgorCavalcantiMoura/PI-RE9-PROJETOS"," ")
   .setVersion('1.0')
   .addBearerAuth()

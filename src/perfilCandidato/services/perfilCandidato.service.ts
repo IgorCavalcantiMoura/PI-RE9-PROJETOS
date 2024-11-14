@@ -40,4 +40,8 @@ export class PerfilCandidatoService {
       throw new NotFoundException(`Perfil de candidato com ID ${id} não encontrado`);
     }
   }
+
+  async findCandidatosByIds(ids: number[]): Promise<PerfilCandidato[]> {
+    return await this.perfilCandidatoRepository.findByIds(ids);
+  }
 }

@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
 import { Empresa } from '../../empresas/entities/empresa.entity';
+import { Projeto } from '../../projeto/entities/projeto.entity';
 
 
 @Entity({ name: 'tb_perfil_empresa' })
@@ -70,4 +71,9 @@ export class PerfilEmpresa {
   @UpdateDateColumn()
   @ApiProperty({ description: 'Data da última atualização do perfil', example: '2024-11-07T03:00:00.000Z' })
   dataAtualizacao: Date;
+
+  @OneToOne(() => Projeto, { onDelete: 'CASCADE', eager: true })
+  @ApiProperty({ description: 'Projeto associado a este perfil', type: () => Projeto })
+  projeto: Projeto;
+
 }
