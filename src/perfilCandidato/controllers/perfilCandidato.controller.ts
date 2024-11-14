@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, ParseIntPipe } from '@nestjs/common';
 
 import { PerfilCandidato } from '../entities/perfilCandidato.entity';
 import { ApiTags, ApiResponse, ApiParam } from '@nestjs/swagger';
@@ -32,7 +32,7 @@ export class PerfilCandidatoController {
     status: 404,
     description: 'Perfil de candidato não encontrado',
   })
-  async buscarPerfilPorId(@Param('id') id: number): Promise<PerfilCandidato> {
+  async buscarPerfilPorId(@Param('id', ParseIntPipe) id: number): Promise<PerfilCandidato> {
     return this.perfilCandidatoService.buscarPerfilPorId(id);
   }
 
