@@ -14,20 +14,17 @@ import { Projeto } from './projeto/entities/projeto.entity';
 import { EquipeModule } from './equipe/equipe.module';
 import { ProjetoModule } from './projeto/projeto.module';
 import { AppController } from './app.controller';
+import { ConfigModule } from '@nestjs/config';
+import { ProdService } from './data/services/prod.service';
 
 
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'db_re9_projetos',
-      entities: [Empresa, Candidato, PerfilCandidato, PerfilEmpresa, Equipe, Projeto],
-      synchronize: true,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      useClass: ProdService,
+      imports: [ConfigModule],
     }),
     AuthModule,
     EmpresasModule,
