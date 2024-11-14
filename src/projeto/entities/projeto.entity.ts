@@ -52,7 +52,7 @@ export class Projeto {
   atualizadoEm: Date;
 
   @ApiProperty({ type: () => PerfilEmpresa })
-  @ManyToOne(() => PerfilEmpresa, (empresa) => empresa.projeto, {
+  @ManyToOne(() => PerfilEmpresa, (empresa) => empresa.projetos, {
     onDelete: 'CASCADE',
   })
   responsavel: PerfilEmpresa;
